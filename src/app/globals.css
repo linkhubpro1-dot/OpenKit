@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  background: #0a0a0f;
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #33334a transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #33334a;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.canvas-node {
+  position: relative;
+  transition: outline-color 0.12s ease;
+}
+.canvas-node:hover {
+  outline: 1px dashed rgba(99, 102, 241, 0.6);
+  outline-offset: -1px;
+}
+.canvas-node.selected {
+  outline: 2px solid #6366f1 !important;
+  outline-offset: -2px;
+}
+.canvas-node.locked {
+  outline: 1px dashed #f59e0b !important;
+}
+
+.drop-indicator {
+  height: 3px;
+  background: #6366f1;
+  border-radius: 2px;
+  margin: 2px 0;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.7);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.ai-dot {
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(110deg, #16161f 8%, #1c1c27 18%, #16161f 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
